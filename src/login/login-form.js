@@ -33,14 +33,17 @@ export default class LoginForm extends Component {
       this.setState({
         error: "",
       });
-      fetch("http://127.0.0.1:5000/user/verification", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          username: this.state.username,
-          password: this.state.password,
-        }),
-      })
+      fetch(
+        "https://courtneys-chaotic-cookbook-api.herokuapp.com/user/verification",
+        {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({
+            username: this.state.username,
+            password: this.state.password,
+          }),
+        }
+      )
         .then((response) => response.json())
         .then((data) => {
           console.log(data);
