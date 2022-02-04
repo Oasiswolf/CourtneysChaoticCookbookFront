@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default class LoginForm extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       username: "",
@@ -13,6 +14,7 @@ export default class LoginForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.refreshpage = this.refreshPage.bind(this);
   }
   handleChange(event) {
     this.setState({
@@ -49,10 +51,8 @@ export default class LoginForm extends Component {
             this.props.handleSetUser(data);
             Cookies.set("username", this.state.username);
             this.setState({
-              error: "suss",
+              error: "Login Sucessfull",
             });
-            alert("Sign In successful");
-            this.props.history.push("/");
           }
         })
         .catch((error) => {
@@ -63,6 +63,9 @@ export default class LoginForm extends Component {
           });
         });
     }
+  }
+  refreshPage() {
+    window.location.reload();
   }
 
   render() {
@@ -97,11 +100,14 @@ export default class LoginForm extends Component {
             />
           </div>
 
-          <button className="signin-button">Sign In</button>
+          <button className="signin-button" onClick={this.refreshPage}>
+            Sign In
+          </button>
         </form>
         <NavLink exact to="/create-login">
           <button>Create Account</button>
         </NavLink>
+        <p>{this.state.error}</p>
       </div>
     );
   }

@@ -30,7 +30,7 @@ export default class LoginForm extends Component {
       this.setState({
         error: "",
       });
-      fetch("create new account url goes here", {
+      fetch("http://127.0.0.1:5000/user/add", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({
