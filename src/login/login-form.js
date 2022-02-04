@@ -74,41 +74,43 @@ export default class LoginForm extends Component {
   render() {
     return (
       <div className="login-form-wrapper">
-        <div className="login-title">Login!</div>
-        <form
-          className="login-form"
-          action="submit"
-          onSubmit={this.handleSubmit}
-        >
-          <div className="username">
-            Username:
-            <input
-              className="username-input"
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={this.state.username}
-              onChange={this.handleChange}
-            />
-          </div>
-          <div className="password">
-            Password:
-            <input
-              className="password-input"
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
-            />
-          </div>
+        <div className="inner-wrapper">
+          <div className="login-title">Login!</div>
+          <form
+            className="login-form"
+            action="submit"
+            onSubmit={this.handleSubmit}
+          >
+            <div className="username">
+              Username:
+              <input
+                className="input"
+                type="text"
+                name="username"
+                placeholder="Username"
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="password">
+              Password:
+              <input
+                className="input"
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
 
-          <button className="signin-button">Sign In</button>
-        </form>
-        <NavLink exact to="/create-login">
-          <button>Create Account</button>
-        </NavLink>
-        <p>{this.state.error}</p>
+            <button className="signin-button">Sign In</button>
+          </form>
+          <NavLink exact to="/create-login">
+            <button className="signin-button">Create Account</button>
+          </NavLink>
+          <p>{this.state.error}</p>
+        </div>
       </div>
     );
   }

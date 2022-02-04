@@ -1,6 +1,6 @@
 import React from "react";
 
-// import BackGround from "../images/background_Test.png";
+import BackGround from "../images/background_Test.png";
 class SingleRecipe extends React.Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,6 @@ class SingleRecipe extends React.Component {
     return (
       <div>
         {this.state.item.ingredients.map((ingrediant) => {
-          console.log(this.state.item);
           return <ol key={ingrediant}>{ingrediant.text}</ol>;
         })}
       </div>
@@ -43,33 +42,24 @@ class SingleRecipe extends React.Component {
     return (
       <div
         className="single-recipe-posting-wrapper"
-        // style={{
-        //   backgroundImage: `url(${BackGround})`,
-        // }}
+        style={{
+          backgroundImage: `url(${BackGround})`,
+        }}
       >
-        <ol key={this.state.item.id}>
-          <div className="random">
-            Name:{this.state.item.name}
-            <br />
-            Ingredients: {this.mappingIngrediant()}
-            <br />
-            Instructions:{this.state.item.instructions}
-            <br />
-            Servings:{this.state.item.servings}
-            <br />
-            Time: Prep:{this.state.item.time.prep}
-            <br />
-            Cook:{this.state.item.time.cook}
-            <br />
-            Active:{this.state.item.time.active}
-            <br />
-            Inactive:{this.state.item.time.inactive}
-            <br />
-            Ready:{this.state.item.time.ready}
-            <br />
-            Total:{this.state.item.time.total}
-          </div>
-        </ol>
+        <div className="random">
+          <div className="recipe-name">{this.state.item.name}</div>
+          <br />
+          Ingredients: {this.mappingIngrediant()}
+          Instructions:{this.state.item.instructions}
+          <br />
+          Servings:{this.state.item.servings}
+          <br />
+          Time: Prep:{this.state.item.time.prep}
+          <br />
+          Cook:{this.state.item.time.cook}
+          <br />
+          Total:{this.state.item.time.total}
+        </div>
       </div>
     );
   }

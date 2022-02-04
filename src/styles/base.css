@@ -6,9 +6,81 @@
 .navbar {
   display: grid;
   grid-template-columns: 3fr 0.25fr;
+  text-decoration: none;
 }
 .main-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.single-recipe-posting-wrapper {
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-size: 40%;
+
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 17px;
+}
+.recipe-name {
+  font-size: 20px;
+  text-align: center;
+}
+
+.login-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inner-wrapper {
+  background-color: #4d6a75;
+  padding: 20px;
+  border-radius: 5px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form {
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  font-weight: 600;
+}
+.signin-button {
+  width: 100px;
+  align-self: center;
+  margin-top: 5px;
+}
+.input {
+  margin-top: 5px;
+}
+.login-title {
+  font-size: 24px;
+}
+
+.links-wrapper a {
+  text-decoration: none;
+  margin: 10px;
+
+  color: black;
+  font-size: 24px;
+}
+.links-wrapper {
+  display: flex;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.loginout-buttons {
+  background-color: #eefff4;
+  border: 1px solid black;
+  border-radius: 5px;
 }
