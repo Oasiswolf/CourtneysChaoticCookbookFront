@@ -64,16 +64,28 @@ export default class App extends Component {
     });
     alert("You have logged out!");
   }
+
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <div>
-            <NavagationBar handleLogOut={this.handleLogOut} />
+            <NavagationBar
+              handleLogOut={this.handleLogOut}
+              user={this.state.user}
+              checkLoginStatus={this.state.loggedInStatus}
+            />
             <Routes>
               <Route index element={<Home />} />
-              <Route path="/login-form" element={<LoginForm />} />
-              <Route path="/create-login" element={<CreateLogin />} />
+              <Route
+                path="/login-form"
+                element={<LoginForm handleSetUser={this.handleSetUser} />}
+              />
+              <Route
+                path="/create-login"
+                element={<CreateLogin />}
+                handleSetUser={this.handleSetUser}
+              />
               <Route path="/profile" element={<Profile />} />
             </Routes>
           </div>
