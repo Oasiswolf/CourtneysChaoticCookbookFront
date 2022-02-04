@@ -17,6 +17,7 @@ export default class Profile extends Component {
         <div className="recipe-wrapper">
           <h3>SAVED RECIPES</h3>
           {/* recipes render herer */}
+          {/* https://courtneys-chaotic-cookbook-api.herokuapp.com/ */}
         </div>
         <div className="comment-wrapper">
           <h3>COMMENTS</h3>

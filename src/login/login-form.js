@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import Cookies from "js-cookie";
 import { NavLink } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 export default class LoginForm extends Component {
   constructor(props) {
-    super();
+    super(props);
 
     this.state = {
       username: "",
@@ -13,13 +14,14 @@ export default class LoginForm extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.refreshpage = this.refreshPage.bind(this);
   }
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
-  refreshPage() {
+  refreshPage(event) {
     window.location.reload();
   }
   handleSubmit(event) {
@@ -48,12 +50,13 @@ export default class LoginForm extends Component {
           } else {
             this.props.handleSetUser(data);
             Cookies.set("username", this.state.username);
+
             this.setState({
-              error: "suss",
+              error: "Login Sucessfull",
             });
-            alert("Sign In successful");
-            this.props.history.push("/");
           }
+
+          window.location.reload();
         })
         .catch((error) => {
           console.log("Error logging in", error);
@@ -102,6 +105,7 @@ export default class LoginForm extends Component {
         <NavLink exact to="/create-login">
           <button>Create Account</button>
         </NavLink>
+        <p>{this.state.error}</p>
       </div>
     );
   }

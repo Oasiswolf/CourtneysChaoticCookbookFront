@@ -10,6 +10,7 @@ import Home from "./pages/home";
 import LoginForm from "./login/login-form";
 import CreateLogin from "./login/create-login";
 import Profile from "./pages/profile";
+import RecipeCreatePage from "./pages/recipe-create-page";
 
 export default class App extends Component {
   constructor() {
@@ -47,7 +48,6 @@ export default class App extends Component {
       this.setState({ loading: false });
     }
   }
-
   handleSetUser(userData) {
     this.setState({
       user: userData,
@@ -64,17 +64,35 @@ export default class App extends Component {
     });
     alert("You have logged out!");
   }
+
   render() {
     return (
       <div className="App">
         <BrowserRouter>
           <div>
-            <NavagationBar handleLogOut={this.handleLogOut} />
+            <NavagationBar
+              handleLogOut={this.handleLogOut}
+              user={this.state.user}
+              checkLoginStatus={this.state.loggedInStatus}
+            />
             <Routes>
               <Route index element={<Home />} />
-              <Route path="/login-form" element={<LoginForm />} />
-              <Route path="/create-login" element={<CreateLogin />} />
+              <Route
+                path="/login-form"
+                element={
+                  <LoginForm
+                    handleSetUser={this.handleSetUser}
+                    handleLogInProp={this.handleLogIn}
+                  />
+                }
+              />
+              <Route
+                path="/create-login"
+                element={<CreateLogin />}
+                handleSetUser={this.handleSetUser}
+              />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/recipe/add" element={<RecipeCreatePage />} />
             </Routes>
           </div>
         </BrowserRouter>
