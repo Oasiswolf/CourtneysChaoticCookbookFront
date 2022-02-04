@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import SingleRecipe from "../recipes/random-recipe";
 export default class Home extends Component {
   constructor(props) {
     super();
@@ -11,9 +12,7 @@ export default class Home extends Component {
     return (
       <div className="home">
         <div className="content-wrapper">
-          <div className="rendom-recipe">recipe goes here</div>
-          <div className="rendom-recipe">recipe goes here</div>
-          <div className="rendom-recipe">recipe goes here</div>
+          <SingleRecipe />
         </div>
       </div>
     );
