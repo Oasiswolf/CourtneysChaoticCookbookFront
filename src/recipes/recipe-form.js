@@ -27,7 +27,9 @@ const RecipeForm = (props) => {
             onSubmit={(values) => {
                 console.log(values);
                 axios
-                    .post(`http://127.0.0.1:5000/recipe/add`, { values })
+                    .post(`https://courtneys-chaotic-cookbook-api.herokuapp.com/recipe/add`, {
+                        values,
+                    })
                     .then((response) => {
                         console.log(response);
                     })
@@ -38,11 +40,15 @@ const RecipeForm = (props) => {
                 const { values } = props;
                 return (
                     <Form>
-                        <NumberInput label="Recipe name" name="name" />
+                        <NumberInput
+                            label="Recipe name"
+                            name="name"
+                            divclass="form-input-wrapper"
+                        />
                         <FieldArray name="ingredients">
                             {({ remove, push }) => {
                                 return (
-                                    <div className="ingredients-array-wrapper">
+                                    <div className="array-wrapper">
                                         {values.ingredients.map((ingredient, index) => {
                                             return (
                                                 <div
@@ -74,7 +80,7 @@ const RecipeForm = (props) => {
                         <FieldArray name="instructions">
                             {({ remove, push }) => {
                                 return (
-                                    <div className="ingredients-array-wrapper">
+                                    <div className="array-wrapper">
                                         {values.instructions.map((instruction, index) => {
                                             return (
                                                 <div
@@ -102,14 +108,42 @@ const RecipeForm = (props) => {
                                 );
                             }}
                         </FieldArray>
-                        <NumberInput label="Servings" name="servings" />
-                        <TextInput label="Image URL" name="image" />
-                        <NumberInput label="Prep time" name="time.prep" />
-                        <NumberInput label="Cook time" name="time.cook" />
-                        <NumberInput label="Active time" name="time.active" />
-                        <NumberInput label="Inactive time" name="time.inactive" />
-                        <NumberInput label="Ready time" name="time.ready" />
-                        <NumberInput label="Total time" name="time.total" />
+                        <NumberInput
+                            label="Servings"
+                            name="servings"
+                            divclass="form-input-wrapper"
+                        />
+                        <TextInput label="Image URL" name="image" divclass="form-input-wrapper" />
+                        <NumberInput
+                            label="Prep time"
+                            name="time.prep"
+                            divclass="form-input-wrapper"
+                        />
+                        <NumberInput
+                            label="Cook time"
+                            name="time.cook"
+                            divclass="form-input-wrapper"
+                        />
+                        <NumberInput
+                            label="Active time"
+                            name="time.active"
+                            divclass="form-input-wrapper"
+                        />
+                        <NumberInput
+                            label="Inactive time"
+                            name="time.inactive"
+                            divclass="form-input-wrapper"
+                        />
+                        <NumberInput
+                            label="Ready time"
+                            name="time.ready"
+                            divclass="form-input-wrapper"
+                        />
+                        <NumberInput
+                            label="Total time"
+                            name="time.total"
+                            divclass="form-input-wrapper"
+                        />
                         <button type="submit">Submit</button>
                     </Form>
                 );
