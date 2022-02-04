@@ -10,6 +10,7 @@ import Home from "./pages/home";
 import LoginForm from "./login/login-form";
 import CreateLogin from "./login/create-login";
 import Profile from "./pages/profile";
+import RecipeCreatePage from "./pages/recipe-create-page";
 
 export default class App extends Component {
   constructor() {
@@ -87,6 +88,7 @@ export default class App extends Component {
                 handleSetUser={this.handleSetUser}
               />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/recipe/add" element={<RecipeCreatePage />} />
             </Routes>
           </div>
         </BrowserRouter>
