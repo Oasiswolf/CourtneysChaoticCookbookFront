@@ -48,7 +48,6 @@ export default class App extends Component {
       this.setState({ loading: false });
     }
   }
-
   handleSetUser(userData) {
     this.setState({
       user: userData,
@@ -80,7 +79,12 @@ export default class App extends Component {
               <Route index element={<Home />} />
               <Route
                 path="/login-form"
-                element={<LoginForm handleSetUser={this.handleSetUser} />}
+                element={
+                  <LoginForm
+                    handleSetUser={this.handleSetUser}
+                    handleLogInProp={this.handleLogIn}
+                  />
+                }
               />
               <Route
                 path="/create-login"

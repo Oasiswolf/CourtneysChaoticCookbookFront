@@ -21,7 +21,7 @@ export default class LoginForm extends Component {
       [event.target.name]: event.target.value,
     });
   }
-  refreshPage() {
+  refreshPage(event) {
     window.location.reload();
   }
   handleSubmit(event) {
@@ -50,10 +50,13 @@ export default class LoginForm extends Component {
           } else {
             this.props.handleSetUser(data);
             Cookies.set("username", this.state.username);
+
             this.setState({
               error: "Login Sucessfull",
             });
           }
+
+          window.location.reload();
         })
         .catch((error) => {
           console.log("Error logging in", error);
@@ -63,9 +66,6 @@ export default class LoginForm extends Component {
           });
         });
     }
-  }
-  refreshPage() {
-    window.location.reload();
   }
 
   render() {
@@ -100,9 +100,7 @@ export default class LoginForm extends Component {
             />
           </div>
 
-          <button className="signin-button" onClick={this.refreshPage}>
-            Sign In
-          </button>
+          <button className="signin-button">Sign In</button>
         </form>
         <NavLink exact to="/create-login">
           <button>Create Account</button>
